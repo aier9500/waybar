@@ -6,7 +6,7 @@
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
-    /*border-radius: 12px;*/
+    border-radius: 10px;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -15,60 +15,91 @@ window#waybar {
 /*************************/
 /* Module Configurations */
 /*************************/
-#taskbar button,
+#taskbar,
 #workspaces button,
-#idle_inhibitor,
-#power-profiles-daemon, 
+#rightsideAddons,
 #backlightAndPulseaudio,
 #tray,
-#clock,
-#quicksettings {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 12px;
+#quicksettings,
+#clockAndBattery,
+#power {
+    padding: 3 5 3 5;
+    border-radius: 10px;
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-/* Specifics */
-#backlight {
-    padding-right: 10px;
+/* Buttons Inside Groups That Need Padding */
+#idle_inhibitor,
+#power-profiles-daemon {
+    border-radius: 10px;
+    padding: 3 5 3 5;
 }
+#backlight,
+#pulseaudio {
+    border-radius: 10px;
+    padding: 3 3 3 3;
+}
+#clock,
 #battery {
-    padding-right: 10px;
+    padding: 0 10 0 10;
 }
+/* Further Customizations */
 #custom-power {
-    border-radius: 12px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background-color: rgba(255, 180, 180, 0.5)
+    border-radius: 10px;
+    padding: 0 5 0 5;
+    background-color: rgba(255, 74, 68, 0.7);
+}
+#idle_inhibitor {
+    border-radius: 10px;
+    background-color: rgba(112, 112, 112, 0.7);
+}
+/* Power Profiles Daemon */
+#power-profiles-daemon.performance {
+    background-color: rgba(255, 74, 68, 0.7);
+}
+#power-profiles-daemon.performance:hover {
+    background-color: rgba(255, 74, 68, 1);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
+}
+#power-profiles-daemon.balanced {
+    background-color: rgba(106, 205, 255, 0.7);
+}
+#power-profiles-daemon.balanced:hover {
+    background-color: rgba(106, 205, 255, 1);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
+}
+#power-profiles-daemon.power-saver {
+    background-color: rgba(135, 255, 135, 0.7);
+}
+#power-profiles-daemon.power-saver:hover {
+    background-color: rgba(135, 255, 135, 1);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
 }
 
+/********************/
+/* Hover Animations */
+/********************/
 #taskbar button:hover,
 #workspaces button:hover,
 #idle_inhibitor:hover,
-#power-profiles-daemon:hover, 
 #pulseaudio:hover,
-#clock:hover,
-#custom-quicksettings:hover,
-#custom-powerbutton:hover {
+#custom-hyprshot:hover,
+#custom-lightmode:hover,
+#custom-darkmode:hover,
+#custom-blueman:hover,
+#custom-swaync:hover,
+#clock:hover {
     background-color: rgba(255, 255, 255, 0.5);
-    animation-name: fade;
-    animation-duration: 2s;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
 }
-
-/*************************/
-/* Power Profiles Daemon */
-/*************************/
-#power-profiles-daemon {
-    color: rgba(255, 255, 255, 1);
-}
-#power-profiles-daemon.performance {
-    background-color: rgb(255, 140, 0);
-}
-#power-profiles-daemon.balanced {
-    background-color: rgb(0, 170, 255);
-}
-#power-profiles-daemon.power-saver {
-    background-color: rgb(0, 199, 0);
+#custom-power:hover {
+    background-color: rgba(255, 74, 68, 1);
+    transition: background-color 0.5s;
+    transition-timing-function: ease-out;
 }
 
