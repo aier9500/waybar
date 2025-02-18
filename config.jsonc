@@ -27,10 +27,10 @@
     "hyprland/workspaces": {
         "format": "{name} {icon}",
         "format-icons": {
-            "default": " ",
+            "default": " ",
             "empty": "",
-            "active": " ",
-            "special": "㊕"
+            "active": " ",
+            "special": " "
         },
         "show-special": true,
         "sort-by": "default"
@@ -38,7 +38,7 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "☕",
+            "activated": "☕️",
             "deactivated": "❄️"
         }
     },
@@ -70,7 +70,7 @@
         "format": "{icon}",
         "tooltip": false,
         "format-icons": {
-            "default": "⚡",
+            "default": "🔌",
             // "performance": "🚀",
             // "balanced": "⚖️",
             // "power-saver": "🌱"
@@ -146,10 +146,16 @@
         "format": " 🌘 ",
         "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
     },
+    "custom/obs": {
+        "tooltip": false,
+        "format": " 📹 ",
+        "on-click": "flatpak run com.obsproject.Studio"
+    },
     "group/quicksettings": {
         "orientation": "horizontal",
         "modules": [
             "custom/hyprshot",
+            "custom/obs",
             "custom/lightmode",
             "custom/darkmode",
             "custom/blueman",
@@ -167,7 +173,7 @@
         "orientation": "horizontal",
         "modules": [
             "clock",
-            "pulseaudio"
+            "battery"
         ]
     }, 
     "group/rightsideAddons": {

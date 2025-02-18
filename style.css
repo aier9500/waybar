@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: IBM Plex Sans, FontAwesome;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -29,7 +29,7 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0.5);
 }
 /* Buttons Inside Groups That Need Padding */
-#idle_inhibitor,
+#idle_inhibitor, 
 #power-profiles-daemon {
     border-radius: 10px;
     padding: 3 5 3 5;
@@ -87,6 +87,7 @@ window#waybar {
 #idle_inhibitor:hover,
 #pulseaudio:hover,
 #custom-hyprshot:hover,
+#custom-obs:hover,
 #custom-lightmode:hover,
 #custom-darkmode:hover,
 #custom-blueman:hover,
