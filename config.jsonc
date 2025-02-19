@@ -2,8 +2,8 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    // "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 1000, // Waybar width
     "spacing": 3, // Gaps between modules (4px)
     "margin": 3,
 
@@ -16,10 +16,11 @@
     "modules-right": [
         "mpd",
         "group/rightsideAddons",
-        "group/backlightAndPulseaudio",
         "tray",
         "group/quicksettings",
+        "group/backlightAndPulseaudio",
         "group/clockAndBattery",
+        "custom/swaync",
         "custom/power"
     ],
 
@@ -30,7 +31,7 @@
             "default": " ",
             "empty": "",
             "active": " ",
-            "special": " "
+            "special": " "
         },
         "show-special": true,
         "sort-by": "default"
@@ -47,11 +48,32 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%b %d  %H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     },
     "battery": {
+        "tooltip": false,
         "states": {
             // "good": 95,
             "warning": 30,
@@ -59,8 +81,8 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -78,17 +100,17 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "🤐",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "phone-muted": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
+            "headphone": "🎧",
+            "hands-free": "📲",
+            "headset": "🎧",
+            "phone": "📱",
+            "phone-muted": "📵",
+            "portable": "🚗",
+            "car": "🚗",
+            "default": ["🤫", "🗣️"]
         },
         "scroll-step": 1,
         "on-click": "pavucontrol",
@@ -120,14 +142,14 @@
         "tooltip": false,
         "format": " {icon} ",
         "format-icons": {
-          "notification": "<span foreground='red'><sup></sup></span>",
-          "none": "",
-          "dnd-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-none": "",
-          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "inhibited-none": "",
-          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-inhibited-none": ""
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": ""
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
@@ -156,10 +178,8 @@
         "modules": [
             "custom/hyprshot",
             "custom/obs",
-            "custom/lightmode",
-            "custom/darkmode",
+            "group/lightmodeDarkmode",
             "custom/blueman",
-            "custom/swaync"
         ]
     },
     "group/backlightAndPulseaudio": {
@@ -180,7 +200,14 @@
         "orientation": "horizontal",
         "modules": [
             "idle_inhibitor",
-            "power-profiles-daemon"
+            "power-profiles-daemon",
+        ]
+    }, 
+    "group/lightmodeDarkmode": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/lightmode",
+            "custom/darkmode"
         ]
     }
 }
