@@ -30,7 +30,7 @@
         "format-icons": {
             "default": " ",
             "empty": "",
-            "active": " ",
+            "active": " ",
             "special": " "
         },
         "show-special": true,
