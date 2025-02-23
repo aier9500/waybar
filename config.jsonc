@@ -21,7 +21,7 @@
         "group/backlightAndPulseaudio",
         "group/clockAndBattery",
         "custom/swaync",
-        "custom/power"
+        "custom/power",
     ],
 
     // Modules configuration
@@ -99,8 +99,8 @@
         }
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon}",
+        "format": "{icon} ",
+        "format-bluetooth": "{icon}",
         "format-muted": "🤐",
         "format-icons": {
             "headphone": "🎧",
@@ -108,7 +108,7 @@
             "headset": "🎧",
             "phone": "📱",
             "phone-muted": "📵",
-            "portable": "🚗",
+            "portable": "🔈",
             "car": "🚗",
             "default": ["🤫", "🗣️"]
         },
@@ -120,8 +120,8 @@
         "on-click": "activate"
     },
     "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": ["🌙", "☀️"]
+        "format": "{icon}",
+        "format-icons": ["🌙", "☀️"], 
     },
     "custom/power": {
         "format": " ⏻ ",
@@ -185,9 +185,31 @@
     "group/backlightAndPulseaudio": {
         "orientation": "horizontal",
         "modules": [
-            "backlight",
-            "pulseaudio"
+            "group/backlightSlider",
+            "group/pulseaudioSlider"
         ]
+    },
+    "group/backlightSlider": {
+        "orientation": "horizontal",
+        "modules": [
+            "backlight",
+            "backlight/slider"
+        ], 
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        }
+    },
+    "group/pulseaudioSlider": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ], 
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+        }
     },
     "group/clockAndBattery": {
         "orientation": "horizontal",
