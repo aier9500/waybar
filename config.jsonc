@@ -99,8 +99,8 @@
         }
     },
     "pulseaudio": {
-        "format": "{icon} ",
-        "format-bluetooth": "{icon}",
+        "format": "{icon} {format_source}",
+        "format-bluetooth": "{icon} {format_source}",
         "format-muted": "🤐",
         "format-icons": {
             "headphone": "🎧",
@@ -112,6 +112,8 @@
             "car": "🚗",
             "default": ["🤫", "🗣️"]
         },
+        "format-source": "🎙️",
+        "format-source-muted": "🔇",
         "scroll-step": 1,
         "on-click": "pavucontrol",
         "ignored-sinks": ["Easy Effects Sink"]
