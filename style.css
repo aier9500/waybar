@@ -23,11 +23,11 @@ window#waybar {
 }
 /* Center */
 /* Right */
+#custom-power,
+#custom-swaync,
 #peripherals,
 #quicksettings,
-#clockAndBattery,
-#custom-swaync,
-#custom-power {
+#clockAndBattery {
   padding: 0 0 0 0;
   border-radius: 10px;
   color: rgba(255, 255, 255, 1);
@@ -44,6 +44,10 @@ window#waybar {
   padding: 0 5 0 5;
 }
 
+#custom-swaync {
+  border-radius: 10px;
+  padding: 0 3 0 3;
+}
 /* group/clockAndBattery */
 #clock,
 #battery {

@@ -2,7 +2,7 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 24, // Waybar height (to be removed for auto height)
+  "height": 40, // Waybar height (to be removed for auto height)
   // "width": 1000, // Waybar width
   "spacing": 3, // Gaps between modules (4px)
   "margin": 3,
@@ -21,7 +21,7 @@
 
   // Modules configuration
   "hyprland/workspaces": {
-    "format": "{name} {icon}",
+    "format": "{icon}",
     "format-icons": {
       "default": "\uf1ce",
       "empty": "",
@@ -83,7 +83,7 @@
     "modules": ["clock", "battery"]
   },
   "custom/power": {
-    "format": "\uf011",
+    "format": "♨️",
     "tooltip": false,
     "on-click": "wlogout"
   },
