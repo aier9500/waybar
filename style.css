@@ -1,15 +1,15 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: IBM Plex Sans, FontAwesome;
-    font-size: 14px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "Adwaita Sans", "Font Awesome 5 Free";
+  font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 /*************************/
@@ -17,67 +17,48 @@ window#waybar {
 /*************************/
 
 /* Left */
-#taskbar,
-/* Center */
 #workspaces button,
+#taskbar {
+  color: rgba(255, 255, 255, 1);
+}
+/* Center */
 /* Right */
-#rightsideAddons,
-#tray,
+#peripherals,
 #quicksettings,
-#backlightAndPulseaudio,
 #clockAndBattery,
 #custom-swaync,
 #custom-power {
-    padding: 5 5 5 5;
-    border-radius: 10px;
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 0 0 0;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* ---- Buttons Inside Groups That Need Edits ---- */
-
-/* group/backlightAndPulseaudio */
+#custom-power,
 #backlight,
-#pulseaudio {
-    border-radius: 10px;
-    padding: 0 5 0 5;
-}
-
-/* group/rightSideAddons */
-#idle_inhibitor, 
+#pulseaudio,
+#custom-blueman,
+#idle_inhibitor,
 #power-profiles-daemon {
-    border-radius: 10px;
-    padding: 3 5 3 5;
+  border-radius: 10px;
+  padding: 0 5 0 5;
 }
 
 /* group/clockAndBattery */
 #clock,
 #battery {
-    padding: 0 10 0 10;
+  padding: 0 8 0 8;
 }
 
-/* ---- Buttons That Need Individual Edits ---- */
-
-#custom-power {
-    border-radius: 10px;
-    padding: 0 5 0 5;
-    background-color: rgba(255, 74, 68, 0.7);
-}
-
-#idle_inhibitor {
-    border-radius: 10px;
-    background-color: rgba(112, 112, 112, 0.7);
-}
-
-#power-profiles-daemon.performance {
-    background-color: rgba(255, 74, 68, 0.7);
+/* #power-profiles-daemon.performance {
+  background-color: rgba(255, 74, 68, 0.7);
 }
 #power-profiles-daemon.balanced {
-    background-color: rgba(106, 205, 255, 0.7);
+  background-color: rgba(106, 205, 255, 0.7);
 }
 #power-profiles-daemon.power-saver {
-    background-color: rgba(135, 255, 135, 0.7);
-}
+  background-color: rgba(135, 255, 135, 0.7);
+} */
 
 /********************/
 /* Hover Animations */
@@ -87,57 +68,59 @@ window#waybar {
 #workspaces button:hover,
 #idle_inhibitor:hover,
 #pulseaudio:hover,
-#custom-hyprshot:hover,
-#custom-obs:hover,
 #custom-lightmode:hover,
 #custom-darkmode:hover,
 #custom-blueman:hover,
 #custom-swaync:hover,
 #clock:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    transition: background-color 0.3s;
-    transition-timing-function: ease-out;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  transition-timing-function: ease-out;
 }
 
 /* ---- Individual Hover Animations ---- */
 
 #custom-power:hover {
-    background-color: rgba(255, 74, 68, 1);
-    transition: background-color 0.3s;
-    transition-timing-function: ease-out;
+  background-color: rgba(255, 108, 103, 0.5);
+  transition: background-color 0.3s;
+  transition-timing-function: ease-out;
 }
 
 #power-profiles-daemon.performance:hover {
-    background-color: rgba(255, 74, 68, 1);
-    transition: background-color 0.3s;
-    transition-timing-function: ease-out;
+  background-color: rgba(255, 108, 103, 0.5);
+  transition: background-color 0.3s;
+  transition-timing-function: ease-out;
 }
 #power-profiles-daemon.balanced:hover {
-    background-color: rgba(106, 205, 255, 1);
-    transition: background-color 0.3s;
-    transition-timing-function: ease-out;
+  background-color: rgba(103, 192, 255, 0.5);
+  transition: background-color 0.3s;
+  transition-timing-function: ease-out;
 }
 #power-profiles-daemon.power-saver:hover {
-    background-color: rgba(135, 255, 135, 1);
-    transition: background-color 0.3s;
-    transition-timing-function: ease-out;
+  background-color: rgba(138, 255, 103, 0.5);
+  transition: background-color 0.3s;
+  transition-timing-function: ease-out;
+}
+
+#backlight-slider,
+#pulseaudio-slider {
 }
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 #backlight-slider trough,
 #pulseaudio-slider trough {
-    min-width: 80px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
+  min-width: 80px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
 }

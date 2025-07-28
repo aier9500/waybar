@@ -1,237 +1,196 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 24, // Waybar height (to be removed for auto height)
-    // "width": 1000, // Waybar width
-    "spacing": 3, // Gaps between modules (4px)
-    "margin": 3,
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 24, // Waybar height (to be removed for auto height)
+  // "width": 1000, // Waybar width
+  "spacing": 3, // Gaps between modules (4px)
+  "margin": 3,
 
-    "modules-left": [
-        "wlr/taskbar",
-    ],
-    "modules-center": [
-        "hyprland/workspaces",
-    ],
-    "modules-right": [
-        "mpd",
-        "group/rightsideAddons",
-        "tray",
-        "group/quicksettings",
-        "group/backlightAndPulseaudio",
-        "group/clockAndBattery",
-        "custom/swaync",
-        "custom/power",
-    ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": [
+    "tray",
+    "mpd",
+    "group/peripherals",
+    "group/quicksettings",
+    "group/clockAndBattery",
+    "custom/swaync",
+    "custom/power"
+  ],
 
-    // Modules configuration
-    "hyprland/workspaces": {
-        "format": "{name} {icon}",
-        "format-icons": {
-            "default": " ",
-            "empty": "",
-            "active": " ",
-            "special": " "
-        },
-        "show-special": true,
-        "sort-by": "default"
+  // Modules configuration
+  "hyprland/workspaces": {
+    "format": "{name} {icon}",
+    "format-icons": {
+      "default": "\uf1ce",
+      "empty": "",
+      "active": "\uf111",
+      "special": ""
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "☕️",
-            "deactivated": "❄️"
-        }
+    "show-special": false,
+    "sort-by": "default"
+  },
+  "wlr/taskbar": {
+    "on-click": "activate"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["🌙", "☀️"]
+  },
+  "custom/blueman": {
+    "format": "🫐",
+    "tooltip": false,
+    "on-click": "blueman-manager"
+  },
+  "custom/swaync": {
+    "tooltip": false,
+    "format": " {icon} ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
     },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%b %d  %H:%M}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-scroll-up": "tz_up",
-                    "on-scroll-down": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
-    },
-    "battery": {
-        "tooltip": false,
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip": false,
-        "format-icons": {
-            "default": "🔌",
-            // "performance": "🚀",
-            // "balanced": "⚖️",
-            // "power-saver": "🌱"
-        }
-    },
-    "pulseaudio": {
-        "format": "{icon} {format_source}",
-        "format-bluetooth": "{icon} {format_source}",
-        "format-muted": "🤐",
-        "format-icons": {
-            "headphone": "🎧",
-            "hands-free": "📲",
-            "headset": "🎧",
-            "phone": "📱",
-            "phone-muted": "📵",
-            "portable": "🔈",
-            "car": "🚗",
-            "default": ["🤫", "🗣️"]
-        },
-        "format-source": "🎙️",
-        "format-source-muted": "🔇",
-        "scroll-step": 1,
-        "on-click": "pavucontrol",
-        "ignored-sinks": ["Easy Effects Sink"]
-    },
-    "wlr/taskbar": {
-        "on-click": "activate"
-    },
-    "backlight": {
-        "format": "{icon}",
-        "format-icons": ["🌙", "☀️"], 
-    },
-    "custom/power": {
-        "format": " ⏻ ",
-		"tooltip": false,
-        "on-click": "wlogout"
-    }, 
-    "custom/blueman": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "blueman-manager"
-    }, 
-    "custom/hyprshot": {
-        "format": " 🖻 ",
-        "tooltip": false,
-        "on-click": "hyprshot -zm region"
-    },
-    "custom/swaync": {
-        "tooltip": false,
-        "format": " {icon} ",
-        "format-icons": {
-          "notification": "<span foreground='red'><sup></sup></span>",
-          "none": "",
-          "dnd-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-none": "",
-          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "inhibited-none": "",
-          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-          "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-    "custom/lightmode": {
-        "tooltip": false,
-        "format": " ☀️ ",
-        "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
-    },
-    "custom/darkmode": {
-        "tooltip": false,
-        "format": " 🌘 ",
-        "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-    },
-    "custom/obs": {
-        "tooltip": false,
-        "format": " 📹 ",
-        "on-click": "flatpak run com.obsproject.Studio"
-    },
-    "group/quicksettings": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/hyprshot",
-            "custom/obs",
-            "group/lightmodeDarkmode",
-            "custom/blueman",
-        ]
-    },
-    "group/backlightAndPulseaudio": {
-        "orientation": "horizontal",
-        "modules": [
-            "group/backlightSlider",
-            "group/pulseaudioSlider"
-        ]
-    },
-    "group/backlightSlider": {
-        "orientation": "horizontal",
-        "modules": [
-            "backlight",
-            "backlight/slider"
-        ], 
-        "drawer": {
-            "transition-duration": 300,
-            "transition-left-to-right": false,
-        }
-    },
-    "group/pulseaudioSlider": {
-        "orientation": "horizontal",
-        "modules": [
-            "pulseaudio",
-            "pulseaudio/slider"
-        ], 
-        "drawer": {
-            "transition-duration": 300,
-            "transition-left-to-right": false,
-        }
-    },
-    "group/clockAndBattery": {
-        "orientation": "horizontal",
-        "modules": [
-            "clock",
-            "battery"
-        ]
-    }, 
-    "group/rightsideAddons": {
-        "orientation": "horizontal",
-        "modules": [
-            "idle_inhibitor",
-            "power-profiles-daemon",
-        ]
-    }, 
-    "group/lightmodeDarkmode": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/lightmode",
-            "custom/darkmode"
-        ]
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "group/quicksettings": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/lightmode",
+      "custom/darkmode",
+      "power-profiles-daemon",
+      "idle_inhibitor",
+      "custom/blueman"
+    ]
+  },
+  "group/peripherals": {
+    "orientation": "horizontal",
+    "modules": ["group/backlightSlider", "group/pulseaudioSlider"]
+  },
+  "group/clockAndBattery": {
+    "orientation": "horizontal",
+    "modules": ["clock", "battery"]
+  },
+  "custom/power": {
+    "format": "\uf011",
+    "tooltip": false,
+    "on-click": "wlogout"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "☕",
+      "deactivated": "❄️"
     }
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%b %d  %H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down"
+    }
+  },
+  "battery": {
+    "tooltip": false,
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "default": "\uf1e6",
+      "performance": "🚀",
+      "balanced": "⚖️",
+      "power-saver": "🌱"
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon}  {format_source}",
+    "format-bluetooth": "{icon} {format_source}",
+    "format-muted": "🤐",
+    "format-icons": {
+      "headphone": "🎧",
+      "hands-free": "📲",
+      "headset": "🎧",
+      "phone": "📱",
+      "phone-muted": "📵",
+      "portable": "🔈",
+      "car": "🚗",
+      "default": ["🤫", "🗣️"]
+    },
+    "format-source": "🎙️",
+    "format-source-muted": "🔇",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "custom/lightmode": {
+    "tooltip": false,
+    "format": " ☀️ ",
+    "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
+  },
+  "custom/darkmode": {
+    "tooltip": false,
+    "format": " 🌘 ",
+    "on-click": "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
+  },
+  "group/backlightSlider": {
+    "orientation": "horizontal",
+    "modules": ["backlight", "backlight/slider"],
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": false
+    }
+  },
+  "group/pulseaudioSlider": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "pulseaudio/slider"],
+    "drawer": {
+      "transition-duration": 300,
+      "transition-left-to-right": false
+    }
+  }
 }
