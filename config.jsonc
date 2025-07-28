@@ -24,7 +24,7 @@
     "format": "{icon}",
     "format-icons": {
       "default": "\uf1ce",
-      "empty": "",
+      "empty": "\uf057",
       "active": "\uf111",
       "special": ""
     },
